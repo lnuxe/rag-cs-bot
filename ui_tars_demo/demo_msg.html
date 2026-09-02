@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>模拟客服消息页</title>
+<style>
+  body { font-family: sans-serif; max-width: 600px; margin: 30px auto; }
+  .msg { background: #f0f0f0; padding: 12px; border-radius: 8px; margin-bottom: 12px; }
+  .msg .who { font-size: 12px; color: #888; }
+  .sent-message { background: #e3f2fd; padding: 12px; border-radius: 8px; margin-bottom: 8px; }
+  .sent-message .who { font-size: 12px; color: #888; }
+  input, button { padding: 8px; font-size: 14px; margin-top: 8px; }
+  input { width: 70%; }
+</style>
+</head>
+<body>
+  <h3>🎮 模拟客户消息（演示用）</h3>
+  <div class="msg">
+    <div class="who">客户 🧑</div>
+    <div id="customer-msg">无畏战刃多少钱？</div>
+  </div>
+  <h3>🤖 机器人回复区</h3>
+  <div id="history"></div>
+  <input id="reply-box" placeholder="机器人回复将自动填入这里">
+  <button id="send-btn">发送</button>
+
+  <script>
+    document.getElementById('send-btn').addEventListener('click', function () {
+      var box = document.getElementById('reply-box');
+      var text = box.value.trim();
+      if (!text) return;
+      var div = document.createElement('div');
+      div.className = 'sent-message';
+      div.innerHTML = '<div class="who">机器人 🤖</div>' + '<div class="reply-text">' + text + '</div>';
+      document.getElementById('history').appendChild(div);
+      box.value = '';
+    });
+  </script>
+</body>
+</html>

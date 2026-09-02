@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Dify 运行时产物（本地生成，非源码）
+dify/docker/volumes/
+dify/**/node_modules/
+dify/**/.venv/
+dify/**/__pycache__/
+dify/.git/
+dify/.uv-cache/
+
+# macOS
+.DS_Store
+
+# 环境变量
+.env
+
+# 运行时日志
+*.log
